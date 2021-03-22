@@ -1,9 +1,16 @@
 {
-    "PluginName": "Flip Along",
-    "PluginDescription": "Quickly flip selected geometry along an axis.",
-    "PluginType": "Toolbar",
-    "ToolbarURL": "PLUGINLOCATION/toolbar.json",
-    "Scripts": [
-        "PLUGINLOCATION/flipalong.js"
-    ]
+    "PluginName": "Toolbar UI (async)",
+    "PluginDescription": "Creates a toolbar UI with buttons and custom icons.",
+    "Toolbar":{
+        "BackgroundHtml": "index.html",
+        "name": "Toolbar async",
+        "buttons": [
+            {
+                "iconText": "CB",
+                "iconURL": "block.png",
+                "command": "CreateBlock",
+                "useBackgroundContext": true
+            }
+        ]
+    }
 }

@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+<body>
+    <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormItInterface.js"></script>
+    <script src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormIt.js"></script>
+    <script>
+        FormItInterface.Initialize(() => {
+
+            window.CreateBlock = async () => { 
+                const pt1 = WSM.Geom.Point3d(-6, -6, 0);
+                const pt2 = WSM.Geom.Point3d(6, 6, 12);
+                const history = FormIt.GroupEdit.GetEditingHistoryID();
+                WSM.APICreateBlock(await history, await pt1, await pt2);
+            };
+            
+        });
+    </script>
+</body>
+
+</html>
