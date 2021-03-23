@@ -1,10 +1,17 @@
 {
     "PluginName": "Lumion",
     "PluginDescription": "Lumion plugin",
+    "PanelIcon": "images/about.png",
     "Toolbar":{
         "BackgroundHtml": "index.html",
         "name": "Lumion toolbar",
         "buttons": [
+            {
+                "iconText": "LU",
+                "iconURL": "images/about.png",
+                "command": "LumionLiveSync.NOOP",
+                "useBackgroundContext": true
+            },
             {
                 "iconText": "ST",
                 "iconURL": "images/play.png",
@@ -19,19 +26,25 @@
             },
             {
                 "iconText": "FC",
-                "iconURL": "images/cameraSync.png",
-                "command": "LumionLiveSync.FollowLumionCamera",
-                "useBackgroundContext": true
-            },
-            {
-                "iconText": "SV",
-                "iconURL": "images/cameraSync2.png",
+                "iconURL": "images/camera_start.png",
                 "command": "LumionLiveSync.SyncLumionCamera",
                 "useBackgroundContext": true
             },
             {
+                "iconText": "SV",
+                "iconURL": "images/camera_iddle.png",
+                "command": "LumionLiveSync.FollowLumionCameraOn",
+                "useBackgroundContext": true
+            },
+            {
                 "iconText": "CS",
-                "iconURL": "images/cameraSyncStop.png",
+                "iconURL": "images/camera_stop.png",
+                "command": "LumionLiveSync.FollowLumionCameraOff",
+                "useBackgroundContext": true
+            },
+            {
+                "iconText": "ON",
+                "iconURL": "images/status_active.png",
                 "command": "LumionLiveSync.TODO",
                 "useBackgroundContext": true
             },
@@ -42,21 +55,9 @@
                 "useBackgroundContext": true
             },
             {
-                "iconText": "ON",
-                "iconURL": "images/on.png",
+                "iconText": "EX",
+                "iconURL": "images/export.png",
                 "command": "LumionLiveSync.TODO",
-                "useBackgroundContext": true
-            },
-            {
-                "iconText": "OF",
-                "iconURL": "images/off.png",
-                "command": "LumionLiveSync.TODO",
-                "useBackgroundContext": true
-            },
-            {
-                "iconText": "LU",
-                "iconURL": "images/lumion.png",
-                "command": "LumionLiveSync.NOOP",
                 "useBackgroundContext": true
             }
         ]
