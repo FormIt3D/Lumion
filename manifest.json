@@ -1,9 +1,9 @@
 {
-    "PluginName": "Toolbar UI (async)",
-    "PluginDescription": "Creates a toolbar UI with buttons and custom icons.",
+    "PluginName": "Lumion",
+    "PluginDescription": "Lumion plugin",
     "Toolbar":{
         "BackgroundHtml": "index.html",
-        "name": "Toolbar async",
+        "name": "Lumion toolbar",
         "buttons": [
             {
                 "iconText": "ST",
