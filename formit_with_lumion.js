@@ -6556,16 +6556,16 @@ window.FormIt.LumionLiveSync = window.FormIt.LumionLiveSync || {};
             return callAsyncAPI(args);
         };
 
-        window.FormIt.LumionLiveSync.SyncLumionView = function() {
+        window.FormIt.LumionLiveSync.SyncLumionCamera = function() {
             args = {
-                TestAPI: "FormIt.LumionLiveSync.SyncLumionView"
+                TestAPI: "FormIt.LumionLiveSync.SyncLumionCamera"
             };
             return callAsyncAPI(args);
         };
 
-        window.FormIt.LumionLiveSync.FollowCamera = function(bFollowCamera) {
+        window.FormIt.LumionLiveSync.FollowLumionCamera = function(bFollowCamera) {
             args = {
-                TestAPI: "FormIt.LumionLiveSync.FollowCamera",
+                TestAPI: "FormIt.LumionLiveSync.FollowLumionCamera",
 bFollowCamera: bFollowCamera
             };
             return callAsyncAPI(args);
@@ -9249,7 +9249,6 @@ FormIt.Files = FormIt.Files || {};
 FormIt.Forge = FormIt.Forge || {};
 FormIt.Forge.UI = FormIt.Forge.UI || {};
 FormIt.Dynamo = FormIt.Dynamo || {};
-FormIt.LumionLiveSync = FormIt.LumionLiveSync || {};
 FormIt.SunAndLocation = FormIt.SunAndLocation || {};
 FormIt.Utils = FormIt.Utils || {};
 
@@ -10146,7 +10145,6 @@ FormIt.Files = FormIt.Files || {};
 FormIt.Forge = FormIt.Forge || {};
 FormIt.Forge.UI = FormIt.Forge.UI || {};
 FormIt.Dynamo = FormIt.Dynamo || {};
-FormIt.LumionLiveSync = FormIt.LumionLiveSync || {};
 FormIt.SunAndLocation = FormIt.SunAndLocation || {};
 FormIt.Utils = FormIt.Utils || {};
 

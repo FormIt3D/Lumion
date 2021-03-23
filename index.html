@@ -19,14 +19,14 @@
                 await FormIt.LumionLiveSync.End();
             };
 
-            LumionLiveSync.SyncLumionView = async () => { 
-                await FormIt.LumionLiveSync.SyncLumionView();
+            LumionLiveSync.SyncLumionCamera = async () => { 
+                await FormIt.LumionLiveSync.SyncLumionCamera();
             };
 
-            LumionLiveSync.FollowCamera = async () => {
+            LumionLiveSync.FollowLumionCamera = async () => {
                 isFollowing = !isFollowing;
 
-                await FormIt.LumionLiveSync.FollowCamera(isFollowing);
+                await FormIt.LumionLiveSync.FollowLumionCamera(isFollowing);
             };
 
             LumionLiveSync.TODO = async () => {

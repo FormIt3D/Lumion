@@ -20,13 +20,13 @@
             {
                 "iconText": "FC",
                 "iconURL": "images/cameraSync.png",
-                "command": "LumionLiveSync.FollowCamera",
+                "command": "LumionLiveSync.FollowLumionCamera",
                 "useBackgroundContext": true
             },
             {
                 "iconText": "SV",
                 "iconURL": "images/cameraSync2.png",
-                "command": "LumionLiveSync.SyncLumionView",
+                "command": "LumionLiveSync.SyncLumionCamera",
                 "useBackgroundContext": true
             },
             {
