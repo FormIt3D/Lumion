@@ -6563,10 +6563,10 @@ window.FormIt.LumionLiveSync = window.FormIt.LumionLiveSync || {};
             return callAsyncAPI(args);
         };
 
-        window.FormIt.LumionLiveSync.FollowLumionCamera = function(bFollowCamera) {
+        window.FormIt.LumionLiveSync.FollowLumionCamera = function(bFollowLumionCamera) {
             args = {
                 TestAPI: "FormIt.LumionLiveSync.FollowLumionCamera",
-bFollowCamera: bFollowCamera
+                bFollowLumionCamera: bFollowLumionCamera
             };
             return callAsyncAPI(args);
         };
