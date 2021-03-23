@@ -3,17 +3,37 @@
 </head>
 <body>
     <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormItInterface.js"></script>
-    <script src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormIt.js"></script>
+    <script src="formit_with_lumion.js"></script>
     <script>
         FormItInterface.Initialize(() => {
+            window.LumionLiveSync = {};
 
-            window.CreateBlock = async () => { 
-                const pt1 = WSM.Geom.Point3d(-6, -6, 0);
-                const pt2 = WSM.Geom.Point3d(6, 6, 12);
-                const history = FormIt.GroupEdit.GetEditingHistoryID();
-                WSM.APICreateBlock(await history, await pt1, await pt2);
-            };
+            //remember state;
+            let isFollowing = false;
             
+            LumionLiveSync.Start = async () => { 
+                await FormIt.LumionLiveSync.Start();
+            };
+
+            LumionLiveSync.End = async () => { 
+                await FormIt.LumionLiveSync.End();
+            };
+
+            LumionLiveSync.SyncLumionView = async () => { 
+                await FormIt.LumionLiveSync.SyncLumionView();
+            };
+
+            LumionLiveSync.FollowCamera = async () => {
+                isFollowing = !isFollowing;
+
+                await FormIt.LumionLiveSync.FollowCamera(isFollowing);
+            };
+
+            LumionLiveSync.TODO = async () => {
+                //TODO needs implemented
+            };
+
+            LumionLiveSync.NOOP = () => {};
         });
     </script>
 </body>

@@ -6,9 +6,57 @@
         "name": "Toolbar async",
         "buttons": [
             {
-                "iconText": "CB",
-                "iconURL": "block.png",
-                "command": "CreateBlock",
+                "iconText": "ST",
+                "iconURL": "images/play.png",
+                "command": "LumionLiveSync.Start",
+                "useBackgroundContext": true
+            },
+            {
+                "iconText": "EN",
+                "iconURL": "images/stop.png",
+                "command": "LumionLiveSync.End",
+                "useBackgroundContext": true
+            },
+            {
+                "iconText": "FC",
+                "iconURL": "images/cameraSync.png",
+                "command": "LumionLiveSync.FollowCamera",
+                "useBackgroundContext": true
+            },
+            {
+                "iconText": "SV",
+                "iconURL": "images/cameraSync2.png",
+                "command": "LumionLiveSync.SyncLumionView",
+                "useBackgroundContext": true
+            },
+            {
+                "iconText": "CS",
+                "iconURL": "images/cameraSyncStop.png",
+                "command": "LumionLiveSync.TODO",
+                "useBackgroundContext": true
+            },
+            {
+                "iconText": "SE",
+                "iconURL": "images/settings.png",
+                "command": "LumionLiveSync.TODO",
+                "useBackgroundContext": true
+            },
+            {
+                "iconText": "ON",
+                "iconURL": "images/on.png",
+                "command": "LumionLiveSync.TODO",
+                "useBackgroundContext": true
+            },
+            {
+                "iconText": "OF",
+                "iconURL": "images/off.png",
+                "command": "LumionLiveSync.TODO",
+                "useBackgroundContext": true
+            },
+            {
+                "iconText": "LU",
+                "iconURL": "images/lumion.png",
+                "command": "LumionLiveSync.NOOP",
                 "useBackgroundContext": true
             }
         ]
