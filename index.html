@@ -11,7 +11,15 @@
             //remember state;
             let isFollowing = false;
             
-            LumionLiveSync.Start = async () => { 
+            LumionLiveSync.Start = async () => {
+
+                const settings = JSON.parse(localStorage.getItem('LumionSettings'));
+
+                //TODO pass these to API.
+                const cameraSync = settings.cameraSync || false;
+                const colorAsMat = settings.colorAsMat || false;
+                const useCurrentUCS = settings.useCurrentUCS || false;
+
                 await FormIt.LumionLiveSync.Start();
             };
 
@@ -31,12 +39,26 @@
                 await FormIt.LumionLiveSync.FollowLumionCamera(false);
             };
 
+            LumionLiveSync.Settings = async () => {
+                const dialogParams = {
+                    "PluginName": "Lumion Settings",
+                    "DialogBox": `${window.location.origin}/settings.html`,
+                    "DialogBoxWidth": 300,
+                    "DialogBoxHeight": 200,
+                    "DialogBoxType": "Modeless"
+                };
+
+                FormItInterface.CallMethod("FormIt.CreateDialogBox", JSON.stringify(dialogParams));
+            };
+
             LumionLiveSync.TODO = async () => {
                 //TODO needs implemented
             };
 
             LumionLiveSync.NOOP = () => {};
+
         });
+            
     </script>
 </body>
 

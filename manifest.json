@@ -51,7 +51,7 @@
             {
                 "iconText": "SE",
                 "iconURL": "images/settings.png",
-                "command": "LumionLiveSync.TODO",
+                "command": "LumionLiveSync.Settings",
                 "useBackgroundContext": true
             },
             {

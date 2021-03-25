@@ -1,0 +1,40 @@
+<html>
+<head>
+</head>
+<body>
+    <h2>Lumion LiveSync Settings</h2>
+    </br>
+    <input type="checkbox" id="CameraSync" name="CameraSync">
+    <label for="CameraSync"> Camera sync on start</label>
+    </br>
+    <input type="checkbox" id="ColorAsMat" name="ColorAsMat">
+    <label for="ColorAsMat"> Use color as material</label>
+    </br>
+    <input type="checkbox" id="UseCurrentUCS" name="UseCurrentUCS">
+    <label for="UseCurrentUCS"> Use current UCS</label>
+    </br>
+    <button id='OKButton'>OK</button>
+    <button id='CancelButton'>Cancel</button>
+    <script>
+        document.getElementById('OKButton').addEventListener('click', () => {
+            const cameraSyncVal = document.getElementById("CameraSync").checked;
+            const colorAsMatVal = document.getElementById("ColorAsMat").checked;
+            const useCurrentUCSVal = document.getElementById("UseCurrentUCS").checked;
+
+            //save to localstorage, this is how we'll share with main execution context.
+            localStorage.setItem('LumionSettings', JSON.stringify({
+                cameraSync: cameraSyncVal,
+                colorAsMat: colorAsMatVal,
+                useCurrentUCS: useCurrentUCSVal
+            }));
+
+            window.close();
+        });
+
+        document.getElementById('CancelButton').addEventListener('click', () => {
+            window.close();
+        });
+    </script>
+</body>
+
+</html>
