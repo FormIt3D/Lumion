@@ -2,6 +2,7 @@
 <head>
 </head>
 <body>
+    <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormItInterface.js"></script>
     <h2>Lumion LiveSync Settings</h2>
     </br>
     <input type="checkbox" id="CameraSync" name="CameraSync">
@@ -16,23 +17,25 @@
     <button id='OKButton'>OK</button>
     <button id='CancelButton'>Cancel</button>
     <script>
-        document.getElementById('OKButton').addEventListener('click', () => {
-            const cameraSyncVal = document.getElementById("CameraSync").checked;
-            const colorAsMatVal = document.getElementById("ColorAsMat").checked;
-            const useCurrentUCSVal = document.getElementById("UseCurrentUCS").checked;
+        FormItInterface.Initialize(() => {
+            document.getElementById('OKButton').addEventListener('click', () => {
+                const cameraSyncVal = document.getElementById("CameraSync").checked;
+                const colorAsMatVal = document.getElementById("ColorAsMat").checked;
+                const useCurrentUCSVal = document.getElementById("UseCurrentUCS").checked;
 
-            //save to localstorage, this is how we'll share with main execution context.
-            localStorage.setItem('LumionSettings', JSON.stringify({
-                cameraSync: cameraSyncVal,
-                colorAsMat: colorAsMatVal,
-                useCurrentUCS: useCurrentUCSVal
-            }));
+                //save to localstorage, this is how we'll share with main execution context.
+                localStorage.setItem('LumionSettings', JSON.stringify({
+                    cameraSync: cameraSyncVal,
+                    colorAsMat: colorAsMatVal,
+                    useCurrentUCS: useCurrentUCSVal
+                }));
 
-            window.close();
-        });
+                PluginDialog.Close("");
+            });
 
-        document.getElementById('CancelButton').addEventListener('click', () => {
-            window.close();
+            document.getElementById('CancelButton').addEventListener('click', () => {
+                PluginDialog.Close("");
+            });
         });
     </script>
 </body>
