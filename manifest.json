@@ -9,55 +9,51 @@
             {
                 "iconText": "LU",
                 "iconURL": "images/about.png",
-                "command": "LumionLiveSync.NOOP",
-                "useBackgroundContext": true
+                "command": "LumionLiveSync.Help",
+                "useBackgroundContext": true,
+                "addSeparator" : true
             },
             {
                 "iconText": "ST",
                 "iconURL": "images/play.png",
                 "command": "LumionLiveSync.Start",
-                "useBackgroundContext": true
+                "useBackgroundContext": true,
+                "name": "StartButton"
             },
             {
                 "iconText": "EN",
                 "iconURL": "images/stop.png",
                 "command": "LumionLiveSync.End",
-                "useBackgroundContext": true
+                "useBackgroundContext": true,
+                "addSeparator" : true
             },
             {
                 "iconText": "FC",
-                "iconURL": "images/camera_start.png",
-                "command": "LumionLiveSync.SyncLumionCamera",
-                "useBackgroundContext": true
-            },
-            {
-                "iconText": "SV",
-                "iconURL": "images/camera_iddle.png",
-                "command": "LumionLiveSync.FollowLumionCameraOn",
-                "useBackgroundContext": true
-            },
-            {
-                "iconText": "CS",
                 "iconURL": "images/camera_stop.png",
-                "command": "LumionLiveSync.FollowLumionCameraOff",
-                "useBackgroundContext": true
+                "command": "LumionLiveSync.SyncLumionCameraOn",
+                "useBackgroundContext": true,
+                "addSeparator" : true,
+                "name": "CameraButton"
             },
             {
                 "iconText": "ON",
-                "iconURL": "images/status_active.png",
-                "command": "LumionLiveSync.TODO",
-                "useBackgroundContext": true
+                "iconURL": "images/status_inactive.png",
+                "command": "LumionLiveSync.NOOP",
+                "useBackgroundContext": true,
+                "addSeparator" : true,
+                "name": "StatusButton"
             },
             {
                 "iconText": "SE",
                 "iconURL": "images/settings.png",
                 "command": "LumionLiveSync.Settings",
-                "useBackgroundContext": true
+                "useBackgroundContext": true,
+                "addSeparator" : true
             },
             {
                 "iconText": "EX",
                 "iconURL": "images/export.png",
-                "command": "LumionLiveSync.TODO",
+                "command": "LumionLiveSync.Export",
                 "useBackgroundContext": true
             }
         ]

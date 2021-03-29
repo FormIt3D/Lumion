@@ -6542,12 +6542,21 @@ val: val,
         };
 window.FormIt.LumionLiveSync = window.FormIt.LumionLiveSync || {};
 
-        window.FormIt.LumionLiveSync.Start = function() {
+        window.FormIt.LumionLiveSync.Start = function(cameraSync) {
             args = {
-                TestAPI: "FormIt.LumionLiveSync.Start"
+                TestAPI: "FormIt.LumionLiveSync.Start",
+                cameraSync: cameraSync
             };
             return callAsyncAPI(args);
         };
+
+        window.FormIt.LumionLiveSync.Pause = function() {
+            args = {
+                TestAPI: "FormIt.LumionLiveSync.Pause"
+             };
+            return callAsyncAPI(args);
+        };
+
 
         window.FormIt.LumionLiveSync.End = function() {
             args = {
@@ -6570,6 +6579,40 @@ window.FormIt.LumionLiveSync = window.FormIt.LumionLiveSync || {};
             };
             return callAsyncAPI(args);
         };
+
+        window.FormIt.LumionLiveSync.Export = function() {
+            args = {
+                TestAPI: "FormIt.LumionLiveSync.Export"
+             };
+            return callAsyncAPI(args);
+        };
+
+        window.FormIt.LumionLiveSync.SetOptions = function(CameraSyncOnStart) {
+            args = {
+                TestAPI: "FormIt.LumionLiveSync.SetOptions",
+                CameraSyncOnStart: CameraSyncOnStart
+            };
+            return callAsyncAPI(args);
+        };
+
+        window.FormIt.LumionLiveSync.GetOptions = function() {
+            args = {
+                TestAPI: "FormIt.LumionLiveSync.GetOptions",
+            };
+            return callAsyncAPI(args);
+        };
+
+        window.FormIt.LumionLiveSync.SetIcon = function(URL, toolBarName, buttonName, buttonPath) {
+            args = {
+                TestAPI: "FormIt.LumionLiveSync.SetIcon",
+                URL: URL,
+                toolBarName: toolBarName,
+                buttonName: buttonName,
+                buttonPath: buttonPath
+            };
+            return callAsyncAPI(args);
+        };
+
 window.FormIt.SectionPlanes = window.FormIt.SectionPlanes || {};
 
         window.FormIt.SectionPlanes.Clear = function() {

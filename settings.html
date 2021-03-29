@@ -8,26 +8,20 @@
     <input type="checkbox" id="CameraSync" name="CameraSync">
     <label for="CameraSync"> Camera sync on start</label>
     </br>
-    <input type="checkbox" id="ColorAsMat" name="ColorAsMat">
-    <label for="ColorAsMat"> Use color as material</label>
-    </br>
-    <input type="checkbox" id="UseCurrentUCS" name="UseCurrentUCS">
-    <label for="UseCurrentUCS"> Use current UCS</label>
-    </br>
     <button id='OKButton'>OK</button>
     <button id='CancelButton'>Cancel</button>
     <script>
         FormItInterface.Initialize(() => {
+            const settings = JSON.parse(localStorage.getItem('LumionSettings'));
+            const cameraSync = settings.cameraSync;
+            document.getElementById("CameraSync").checked = Boolean(cameraSync);
+
             document.getElementById('OKButton').addEventListener('click', () => {
                 const cameraSyncVal = document.getElementById("CameraSync").checked;
-                const colorAsMatVal = document.getElementById("ColorAsMat").checked;
-                const useCurrentUCSVal = document.getElementById("UseCurrentUCS").checked;
 
                 //save to localstorage, this is how we'll share with main execution context.
                 localStorage.setItem('LumionSettings', JSON.stringify({
-                    cameraSync: cameraSyncVal,
-                    colorAsMat: colorAsMatVal,
-                    useCurrentUCS: useCurrentUCSVal
+                    cameraSync: cameraSyncVal
                 }));
 
                 PluginDialog.Close("");
