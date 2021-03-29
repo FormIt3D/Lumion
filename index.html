@@ -77,11 +77,23 @@
                 };
 
                 FormItInterface.CallMethod("FormIt.CreateDialogBox", JSON.stringify(dialogParams));
+                
+                const storageUpdatedHandler = () => {
+                    const hasProceededOnSettingsDialog = JSON.parse(localStorage.getItem('LumionSettings.hasProceededOnSettingsDialog'));
 
-                // Set the Camera option in FormIt
-                const settings = JSON.parse(localStorage.getItem('LumionSettings'));
-                const cameraSync = settings.cameraSync;
-                await FormIt.LumionLiveSync.SetOptions(Boolean(cameraSync));
+                    if (hasProceededOnSettingsDialog){
+                        removeEventListener('storage', storageUpdatedHandler, true); 
+
+                        // Set the Camera option in FormIt
+                        const settings = JSON.parse(localStorage.getItem('LumionSettings'));
+                        const cameraSync = settings.cameraSync;
+                        //await not necessary here, yet.
+                        FormIt.LumionLiveSync.SetOptions(Boolean(cameraSync));
+                    }
+                };
+
+                localStorage.setItem('LumionSettings.hasProceededOnSettingsDialog', false);
+                const storageEventListener = addEventListener('storage', storageUpdatedHandler, true);
            };
 
             LumionLiveSync.Help = async () => {
