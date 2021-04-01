@@ -6580,13 +6580,6 @@ window.FormIt.LumionLiveSync = window.FormIt.LumionLiveSync || {};
             return callAsyncAPI(args);
         };
 
-        window.FormIt.LumionLiveSync.Export = function() {
-            args = {
-                TestAPI: "FormIt.LumionLiveSync.Export"
-             };
-            return callAsyncAPI(args);
-        };
-
         window.FormIt.LumionLiveSync.SetOptions = function(CameraSyncOnStart) {
             args = {
                 TestAPI: "FormIt.LumionLiveSync.SetOptions",
@@ -6602,14 +6595,23 @@ window.FormIt.LumionLiveSync = window.FormIt.LumionLiveSync || {};
             return callAsyncAPI(args);
         };
 
-        window.FormIt.LumionLiveSync.SetIcon = function(URL, toolBarName, buttonName, buttonPath) {
+window.FormIt.PlugIn = window.FormIt.PlugIn || {};
+
+        window.FormIt.PlugIn.SetIcon = function(URL, toolBarName, buttonName, buttonPath) {
             args = {
-                TestAPI: "FormIt.LumionLiveSync.SetIcon",
+                TestAPI: "FormIt.PlugIn.SetIcon",
                 URL: URL,
                 toolBarName: toolBarName,
                 buttonName: buttonName,
                 buttonPath: buttonPath
             };
+            return callAsyncAPI(args);
+        };
+
+        window.FormIt.PlugIn.Export = function() {
+            args = {
+                TestAPI: "FormIt.PlugIn.Export"
+             };
             return callAsyncAPI(args);
         };
 
