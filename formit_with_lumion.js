@@ -6608,13 +6608,6 @@ window.FormIt.PlugIn = window.FormIt.PlugIn || {};
             return callAsyncAPI(args);
         };
 
-        window.FormIt.PlugIn.Export = function() {
-            args = {
-                TestAPI: "FormIt.PlugIn.Export"
-             };
-            return callAsyncAPI(args);
-        };
-
 window.FormIt.SectionPlanes = window.FormIt.SectionPlanes || {};
 
         window.FormIt.SectionPlanes.Clear = function() {

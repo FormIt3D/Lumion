@@ -15,7 +15,7 @@
             //Get the Camera Option from FormIt
             (async () => {
                 const isCameraSyncOnStart = await FormIt.LumionLiveSync.GetOptions();
-                await FormIt.LumionLiveSync.FollowLumionCamera(isCameraSyncOnStart); 
+                await FormIt.LumionLiveSync.FollowLumionCamera(Boolean(isCameraSyncOnStart)); 
                 //save to localstorage, this is how we'll share with main execution context.
                 localStorage.setItem('LumionSettings', JSON.stringify({
                         cameraSync: isCameraSyncOnStart
@@ -27,11 +27,11 @@
                 const settings = JSON.parse(localStorage.getItem('LumionSettings'));
 
                 const cameraSync = settings.cameraSync || true;
-                await FormIt.LumionLiveSync.FollowLumionCamera(cameraSync);
+                await FormIt.LumionLiveSync.FollowLumionCamera(Boolean(cameraSync));
  
                 if(!isStart)
                 {
-                    await FormIt.LumionLiveSync.Start(cameraSync);
+                    await FormIt.LumionLiveSync.Start(Boolean(cameraSync));
                     await FormIt.PlugIn.SetIcon(window.location.origin,"Lumion toolbar","StartButton","Lumion/images/pause.png");
                     await FormIt.PlugIn.SetIcon(window.location.origin,"Lumion toolbar","StatusButton","Lumion/images/status_active.png");
                 }
@@ -111,7 +111,7 @@
 
 
             LumionLiveSync.Export = async () => {
-                 await FormIt.PlugIn.Export();
+                await FormIt.Commands.DoCommand("File: Export Locally...");
             };
 
             LumionLiveSync.TODO = async () => {
