@@ -1,15 +1,16 @@
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="LumionStylesheet.css">
+    <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormItInterface.js"></script>
 </head>
 <body>
-    <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormItInterface.js"></script>
-    <h2>Lumion LiveSync Settings</h2>
-    </br>
+    <h3>Lumion<sup>&reg;</sup> LiveSync<sup>&reg;</sup> Settings</h3>
     <input type="checkbox" id="CameraSync" name="CameraSync">
     <label for="CameraSync"> Camera sync on start</label>
-    </br>
-    <button id='OKButton'>OK</button>
-    <button id='CancelButton'>Cancel</button>
+    <div class="buttonHolder">
+        <button id='OKButton'>OK</button>
+        <button id='CancelButton'>Cancel</button>
+    </div>
     <script>
         FormItInterface.Initialize(() => {
             const settings = JSON.parse(localStorage.getItem('LumionSettings'));
