@@ -7,7 +7,7 @@
     <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormItInterface.js"></script>
     <script src="formit_with_lumion.js"></script>
     <script>
-        FormItInterface.Initialize(() => {
+        FormItInterface.Initialize(async() => {
             window.LumionLiveSync = {};
 
             //TODO could wrap this in interval check, or something else that gives a decent UX.
@@ -17,6 +17,8 @@
                 //TODO a better message.
                 alert('Did not correctly load Lumion. Please install from <TODO_FILL_ME_IN>.');
                 return;
+            } else {
+                alert('success')
             }
 
             //remember state;
