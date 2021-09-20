@@ -5,21 +5,12 @@
 
 <body>
     <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormItInterface.js"></script>
+    <script type="text/javascript" src="https://formit3d.github.io/SharedPluginUtilities/FormIt_v22.js"></script>
     <script src="formit_with_lumion.js"></script>
+
     <script>
         FormItInterface.Initialize(async() => {
             window.LumionLiveSync = {};
-
-            //TODO could wrap this in interval check, or something else that gives a decent UX.
-            const success = await FormIt.LoadDLL("LumionAddInDLL.dll");
-
-            if (!success) {
-                //TODO a better message.
-                alert('Did not correctly load Lumion. Please install from <TODO_FILL_ME_IN>.');
-                return;
-            } else {
-                alert('success')
-            }
 
             //remember state;
             let isStart = false;
@@ -78,7 +69,7 @@
             LumionLiveSync.Settings = async() => {
                 const dialogParams = {
                     "PluginName": "Lumion Settings",
-                    "DialogBox": `${window.location.origin}/Lumion/settings.html`,
+                    "DialogBox": `${window.location.origin}/Lumion/v22_0/settings.html`,
                     "DialogBoxWidth": 600,
                     "DialogBoxHeight": 215,
                     "DialogBoxType": "Modeless"
@@ -107,7 +98,7 @@
             LumionLiveSync.Help = async() => {
                 const dialogParams = {
                     "PluginName": "Lumion Help",
-                    "DialogBox": `${window.location.origin}/Lumion/Help.html`,
+                    "DialogBox": `${window.location.origin}/Lumion/v22_0/Help.html`,
                     "DialogBoxWidth": 730,
                     "DialogBoxHeight": 500,
                     "DialogBoxType": "Modeless"
