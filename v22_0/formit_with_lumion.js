@@ -53,6 +53,8 @@ window.FormIt.LumionLiveSync.GetOptions = function() {
     return callAsyncAPI(args);
 };
 
+window.FormIt.PlugIn = window.FormIt.PlugIn || {};
+
 window.FormIt.PlugIn.SetIcon = function(URL, toolBarName, buttonName, buttonPath) {
     args = {
         TestAPI: "FormIt.PlugIn.SetIcon",
