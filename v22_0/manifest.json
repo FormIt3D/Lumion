@@ -3,7 +3,7 @@
     "PluginDescription": "Lumion® LiveSync® for Autodesk® FormIt Pro®",
     "Platforms": ["Windows"],
     "DLLs" : ["PLUGINLOCATION/LiveSyncNET.dll", "PLUGINLOCATION/LumionAddInDLL.dll"],
-    "PanelIcon": "images/about.png",
+    "PanelIcon": "images/logo.png",
     "Toolbar": {
         "BackgroundHtml": "index.html",
         "name": "Lumion toolbar",
