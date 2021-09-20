@@ -5,8 +5,11 @@
 
 <body>
     <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormItInterface.js"></script>
+    <script type="text/javascript" src="https://formit3d.github.io/SharedPluginUtilities/FormIt_v22.js"></script>
+
     <script>
         FormItInterface.Initialize(async() => {
+            console.log("FormItInterface.Initialize");
             window.LumionLiveSync = {};
 
             //TODO could wrap this in interval check, or something else that gives a decent UX.
@@ -105,7 +108,7 @@
             LumionLiveSync.Help = async() => {
                 const dialogParams = {
                     "PluginName": "Lumion Help",
-                    "DialogBox": `${window.location.origin}/Lumion/Help.html`,
+                    "DialogBox": `${window.location.origin}/Lumion/v22_0/Help.html`,
                     "DialogBoxWidth": 730,
                     "DialogBoxHeight": 500,
                     "DialogBoxType": "Modeless"
