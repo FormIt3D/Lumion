@@ -1,5 +1,7 @@
 {
-    "PluginName": "Lumion®",
+    "PluginName": "Lumion",
+    "Platforms": ["Windows"],
+    "DLLs" : ["PLUGINLOCATION/LiveSyncNET.dll", "PLUGINLOCATION/LumionAddInDLL.dll"],
     "PluginDescription": "Lumion plugin",
     "PanelIcon": "images/about.png",
     "Toolbar":{
