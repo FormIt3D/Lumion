@@ -22,7 +22,7 @@
                 await FormIt.LumionLiveSync.FollowLumionCamera(Boolean(isCameraSyncOnStart));
                 //save to localstorage, this is how we'll share with main execution context.
                 localStorage.setItem('LumionSettings', JSON.stringify({
-                    cameraSync: true
+                    cameraSync: isCameraSyncOnStart
                 }));
             })();
 
