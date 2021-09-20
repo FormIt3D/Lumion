@@ -12,24 +12,14 @@
         FormItInterface.Initialize(async() => {
             window.LumionLiveSync = {};
 
-            //TODO could wrap this in interval check, or something else that gives a decent UX.
-            //const success = await FormIt.LoadDLL("LumionAddInDLL.dll");
-            // if (!success) {
-            //     //TODO a better message.
-            //     alert('Did not correctly load Lumion. Please install from <TODO_FILL_ME_IN>.');
-            //     return;
-            // } else {
-            //     alert('success')
-            // }
-
             //remember state;
             let isStart = false;
             let isCameraOn = true;
 
             //Get the Camera Option from FormIt
             (async() => {
-                //const isCameraSyncOnStart = await FormIt.LumionLiveSync.GetOptions();
-                //await FormIt.LumionLiveSync.FollowLumionCamera(Boolean(isCameraSyncOnStart));
+                const isCameraSyncOnStart = await FormIt.LumionLiveSync.GetOptions();
+                await FormIt.LumionLiveSync.FollowLumionCamera(Boolean(isCameraSyncOnStart));
                 //save to localstorage, this is how we'll share with main execution context.
                 localStorage.setItem('LumionSettings', JSON.stringify({
                     cameraSync: true
