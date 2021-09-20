@@ -6,10 +6,10 @@
 <body>
     <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormItInterface.js"></script>
     <script type="text/javascript" src="https://formit3d.github.io/SharedPluginUtilities/FormIt_v22.js"></script>
+    <script src="formit_with_lumion.js"></script>
 
     <script>
         FormItInterface.Initialize(async() => {
-            console.log("FormItInterface.Initialize");
             window.LumionLiveSync = {};
 
             //TODO could wrap this in interval check, or something else that gives a decent UX.
@@ -28,11 +28,11 @@
 
             //Get the Camera Option from FormIt
             (async() => {
-                const isCameraSyncOnStart = await FormIt.LumionLiveSync.GetOptions();
-                await FormIt.LumionLiveSync.FollowLumionCamera(Boolean(isCameraSyncOnStart));
+                //const isCameraSyncOnStart = await FormIt.LumionLiveSync.GetOptions();
+                //await FormIt.LumionLiveSync.FollowLumionCamera(Boolean(isCameraSyncOnStart));
                 //save to localstorage, this is how we'll share with main execution context.
                 localStorage.setItem('LumionSettings', JSON.stringify({
-                    cameraSync: isCameraSyncOnStart
+                    cameraSync: true
                 }));
             })();
 
@@ -79,7 +79,7 @@
             LumionLiveSync.Settings = async() => {
                 const dialogParams = {
                     "PluginName": "Lumion Settings",
-                    "DialogBox": `${window.location.origin}/Lumion/settings.html`,
+                    "DialogBox": `${window.location.origin}/Lumion/v22_0/settings.html`,
                     "DialogBoxWidth": 600,
                     "DialogBoxHeight": 215,
                     "DialogBoxType": "Modeless"
