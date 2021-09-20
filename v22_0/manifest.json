@@ -1,5 +1,6 @@
 {
-    "PluginName": "Lumion",
+    "PluginName": "Lumion® LiveSync®",
+    "PluginDescription": "Lumion® LiveSync® for Autodesk® FormIt Pro®",
     "Platforms": ["Windows"],
     "DLLs" : ["PLUGINLOCATION/LiveSyncNET.dll", "PLUGINLOCATION/LumionAddInDLL.dll"],
     "PluginDescription": "Lumion plugin",
