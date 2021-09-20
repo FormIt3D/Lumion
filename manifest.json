@@ -1,17 +1,16 @@
 {
-    "PluginName": "Lumion®",
-    "PluginDescription": "Lumion plugin",
+    "PluginName": "Lumion® LiveSync®",
+    "PluginDescription": "Lumion® LiveSync® for Autodesk® FormIt Pro®",
     "PanelIcon": "images/about.png",
-    "Toolbar":{
+    "Toolbar": {
         "BackgroundHtml": "index.html",
         "name": "Lumion toolbar",
-        "buttons": [
-            {
+        "buttons": [{
                 "iconText": "LU",
                 "iconURL": "images/about.png",
                 "command": "LumionLiveSync.Help",
                 "useBackgroundContext": true,
-                "addSeparator" : true
+                "addSeparator": true
             },
             {
                 "iconText": "ST",
@@ -25,14 +24,14 @@
                 "iconURL": "images/stop.png",
                 "command": "LumionLiveSync.End",
                 "useBackgroundContext": true,
-                "addSeparator" : true
+                "addSeparator": true
             },
             {
                 "iconText": "FC",
                 "iconURL": "images/camera_stop.png",
                 "command": "LumionLiveSync.SyncLumionCameraOn",
                 "useBackgroundContext": true,
-                "addSeparator" : true,
+                "addSeparator": true,
                 "name": "CameraButton"
             },
             {
@@ -40,7 +39,7 @@
                 "iconURL": "images/status_inactive.png",
                 "command": "LumionLiveSync.NOOP",
                 "useBackgroundContext": true,
-                "addSeparator" : true,
+                "addSeparator": true,
                 "name": "StatusButton"
             },
             {
@@ -48,7 +47,7 @@
                 "iconURL": "images/settings.png",
                 "command": "LumionLiveSync.Settings",
                 "useBackgroundContext": true,
-                "addSeparator" : true
+                "addSeparator": true
             },
             {
                 "iconText": "EX",
