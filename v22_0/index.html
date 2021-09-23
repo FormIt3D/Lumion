@@ -35,12 +35,12 @@
 
                 if (!isStart) {
                     await FormIt.LumionLiveSync.Start(Boolean(cameraSync));
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/images/pause.png");
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/images/status_active.png");
+                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/pause.png");
+                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_active.png");
                 } else {
                     await FormIt.LumionLiveSync.Pause();
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/images/play.png");
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/images/status_paused.png");
+                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/play.png");
+                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_paused.png");
                 }
                 isStart = !isStart;
 
@@ -49,8 +49,8 @@
             LumionLiveSync.End = async() => {
                 isStart = false;
                 await FormIt.LumionLiveSync.End();
-                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/images/play.png");
-                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/images/status_inactive.png");
+                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/play.png");
+                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_inactive.png");
             };
 
             LumionLiveSync.SyncLumionCameraOn = async() => {
@@ -58,10 +58,10 @@
 
                 if (!isCameraOn) {
                     await FormIt.LumionLiveSync.FollowLumionCamera(true);
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/images/camera_stop.png");
+                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_stop.png");
                 } else {
                     await FormIt.LumionLiveSync.FollowLumionCamera(false);
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/images/camera_start.png");
+                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_start.png");
                 }
                 isCameraOn = !isCameraOn;
             };
