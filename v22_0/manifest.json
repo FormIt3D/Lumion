@@ -53,7 +53,7 @@
             },
             {
                 "iconText": "SE",
-                "iconURL": "images/settings.png",
+                "iconURL": "images/settings_disabled.png",
                 "command": "LumionLiveSync.Settings",
                 "useBackgroundContext": true,
                 "addSeparator": true,
@@ -62,7 +62,7 @@
             },
             {
                 "iconText": "EX",
-                "iconURL": "images/export.png",
+                "iconURL": "images/export_disabled.png",
                 "command": "LumionLiveSync.Export",
                 "useBackgroundContext": true,
                 "name": "ExportButton",
