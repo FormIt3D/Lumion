@@ -118,6 +118,15 @@
 
             LumionLiveSync.NOOP = () => {};
 
+            //change the message type
+            FormItInterface.SubscribeMessage("FormIt.Message.kSelectionsChanged", (msg) => {
+
+                //in case you need something from the message payload.
+                const json = JSON.parse(msg);
+
+                //on some condition, invoke FormIt.PlugIn.SetIcon
+                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/status_active.png");
+            });
         });
     </script>
 </body>
