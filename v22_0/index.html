@@ -37,10 +37,14 @@
                     await FormIt.LumionLiveSync.Start(Boolean(cameraSync));
                     await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/pause.png");
                     await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_active.png");
+                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0/images/stop.png");
+                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_stop.png");
                 } else {
                     await FormIt.LumionLiveSync.Pause();
                     await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/play.png");
                     await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_paused.png");
+                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0/images/stop.png");
+                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_disabled.png");
                 }
                 isStart = !isStart;
 
@@ -51,6 +55,8 @@
                 await FormIt.LumionLiveSync.End();
                 await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/play.png");
                 await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_inactive.png");
+                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0/images/stop_disabled.png");
+                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_disabled.png");
             };
 
             LumionLiveSync.SyncLumionCameraOn = async() => {
