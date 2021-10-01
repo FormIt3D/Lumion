@@ -144,7 +144,7 @@
             });
 
             // Check to see if Lumion is closing the document.
-            FormItInterface.SubscribeMessage("FormIt.Message.kTimerTicked", (msg) => {
+            FormItInterface.SubscribeMessage("FormIt.Message.kTimerTicked", async (msg) => {
                 if (isStart)
                 {
                     const isClosing = await FormIt.LumionLiveSync.isClosing();
