@@ -141,7 +141,20 @@
             // Call End on new model request.
             FormItInterface.SubscribeMessage("FormIt.Message.kNewModelRequested", (msg) => {
                 LumionLiveSync.End();
-            });            
+            });
+
+            // Check to see if Lumion is closing the document.
+            FormItInterface.SubscribeMessage("FormIt.Message.kTimerTicked", (msg) => {
+                if(isStart)
+                {
+                    const isClosing = false;
+                    await FormIt.LumionLiveSync.isClosing(Boolean(isColosing));
+                    if(isClosing == true)
+                    {
+                        LumionLiveSync.End();
+                    }
+                }
+            });
 
         });
     </script>

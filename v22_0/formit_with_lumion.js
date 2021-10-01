@@ -53,6 +53,13 @@ window.FormIt.LumionLiveSync.GetOptions = function() {
     return callAsyncAPI(args);
 };
 
+window.FormIt.LumionLiveSync.isClosing = function() {
+    args = {
+        TestAPI: "FormIt.LumionLiveSync.isClosing",
+    };
+    return callAsyncAPI(args);
+};
+
 window.FormIt.PlugIn = window.FormIt.PlugIn || {};
 
 window.FormIt.PlugIn.SetIcon = function(URL, toolBarName, buttonName, buttonPath) {
