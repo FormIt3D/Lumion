@@ -1,9 +1,8 @@
 window.FormIt.LumionLiveSync = window.FormIt.LumionLiveSync || {};
 
-window.FormIt.LumionLiveSync.Start = function(cameraSync) {
+window.FormIt.LumionLiveSync.Start = function() {
     args = {
-        TestAPI: "FormIt.LumionLiveSync.Start",
-        cameraSync: cameraSync
+        TestAPI: "FormIt.LumionLiveSync.Start"
     };
     return callAsyncAPI(args);
 };
@@ -16,16 +15,37 @@ window.FormIt.LumionLiveSync.Pause = function() {
 };
 
 
-window.FormIt.LumionLiveSync.End = function() {
+window.FormIt.LumionLiveSync.Stop = function() {
     args = {
-        TestAPI: "FormIt.LumionLiveSync.End"
+        TestAPI: "FormIt.LumionLiveSync.Stop"
     };
     return callAsyncAPI(args);
 };
 
-window.FormIt.LumionLiveSync.SyncLumionCamera = function() {
+window.FormIt.LumionLiveSync.Export = function() {
     args = {
-        TestAPI: "FormIt.LumionLiveSync.SyncLumionCamera"
+        TestAPI: "FormIt.LumionLiveSync.Export"
+    };
+    return callAsyncAPI(args);
+};
+
+window.FormIt.LumionLiveSync.ShowSettings = function() {
+    args = {
+        TestAPI: "FormIt.LumionLiveSync.ShowSettings"
+    };
+    return callAsyncAPI(args);
+};
+
+window.FormIt.LumionLiveSync.ShowAbout = function() {
+    args = {
+        TestAPI: "FormIt.LumionLiveSync.ShowAbout"
+    };
+    return callAsyncAPI(args);
+};
+
+window.FormIt.LumionLiveSync.ToggleFollowCamera = function() {
+    args = {
+        TestAPI: "FormIt.LumionLiveSync.ToggleFollowCamera"
     };
     return callAsyncAPI(args);
 };
@@ -53,9 +73,9 @@ window.FormIt.LumionLiveSync.GetOptions = function() {
     return callAsyncAPI(args);
 };
 
-window.FormIt.LumionLiveSync.isClosing = function() {
+window.FormIt.LumionLiveSync.GetState = function() {
     args = {
-        TestAPI: "FormIt.LumionLiveSync.isClosing",
+        TestAPI: "FormIt.LumionLiveSync.GetState",
     };
     return callAsyncAPI(args);
 };

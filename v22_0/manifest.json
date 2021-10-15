@@ -24,7 +24,7 @@
             {
                 "iconText": "EN",
                 "iconURL": "images/stop_disabled.png",
-                "command": "LumionLiveSync.End",
+                "command": "LumionLiveSync.Stop",
                 "useBackgroundContext": true,
                 "addSeparator": true,
                 "name": "StopButton"
@@ -32,7 +32,7 @@
             {
                 "iconText": "FC",
                 "iconURL": "images/camera_disabled.png",
-                "command": "LumionLiveSync.SyncLumionCameraOn",
+                "command": "LumionLiveSync.ToggleFollowCamera",
                 "useBackgroundContext": true,
                 "addSeparator": true,
                 "name": "CameraButton"
@@ -47,7 +47,7 @@
             },
             {
                 "iconText": "SE",
-                "iconURL": "images/settings_disabled.png",
+                "iconURL": "images/settings.png",
                 "command": "LumionLiveSync.Settings",
                 "useBackgroundContext": true,
                 "addSeparator": true,
@@ -55,7 +55,7 @@
             },
             {
                 "iconText": "EX",
-                "iconURL": "images/export_disabled.png",
+                "iconURL": "images/export.png",
                 "command": "LumionLiveSync.Export",
                 "useBackgroundContext": true,
                 "name": "ExportButton"

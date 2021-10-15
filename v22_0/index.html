@@ -10,149 +10,119 @@
 
     <script>
         FormItInterface.Initialize(async() => {
+            
+            // LiveSync status 'enum'.
+            window.LiveSyncState = {
+                OFF       : 0,
+                ON        : 1,
+                Paused    : 2,
+                unknown   : Number.MAX_SAFE_INTEGER
+            };
+
             window.LumionLiveSync = {};
 
             //remember state;
-            let isStart = false;
-            let isCameraOn = true;
+            let liveSyncState = LiveSyncState.unknown;
+            let isFollowCamera = false;
 
-            //Get the Camera Option from FormIt
-            (async() => {
-                const isCameraSyncOnStart = await FormIt.LumionLiveSync.GetOptions();
-                await FormIt.LumionLiveSync.FollowLumionCamera(Boolean(isCameraSyncOnStart));
-                //save to localstorage, this is how we'll share with main execution context.
-                localStorage.setItem('LumionSettings', JSON.stringify({
-                    cameraSync: isCameraSyncOnStart
-                }));
-            })();
+            LumionLiveSync.UpdateUI = async() => {
+                const pluginState = await FormIt.LumionLiveSync.GetState();
+
+                if ((pluginState.liveSyncState != liveSyncState) || (pluginState.followCamera != isFollowCamera)) {
+                    liveSyncState  = pluginState.liveSyncState;
+                    isFollowCamera = pluginState.followCamera;
+                    
+                    switch(liveSyncState) {
+                        
+                        case(LiveSyncState.OFF):
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/play.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0/images/stop_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_inactive.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v22_0/images/settings.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v22_0/images/export.png");
+                        break;
+                        
+                        case(LiveSyncState.ON):
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/pause.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0/images/stop.png");
+                            
+                            if (isFollowCamera) {
+                                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_stop.png");
+                            } else {
+                                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_start.png");
+                            }
+
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_active.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v22_0/images/settings_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v22_0/images/export_disabled.png");
+                        break;
+                        
+                        case(LiveSyncState.Paused):
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/play.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0/images/stop.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_paused.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v22_0/images/settings_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v22_0/images/export_disabled.png");
+                        break;
+                    }
+                }
+            }
 
             LumionLiveSync.Start = async() => {
 
-                const settings = JSON.parse(localStorage.getItem('LumionSettings'));
-
-                const cameraSync = settings.cameraSync || true;
-                await FormIt.LumionLiveSync.FollowLumionCamera(Boolean(cameraSync));
-
-                if (!isStart) {
-                    await FormIt.LumionLiveSync.Start(Boolean(cameraSync));
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/pause.png");
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_active.png");
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0/images/stop.png");
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_stop.png");
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v22_0/images/settings.png");
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v22_0/images/export.png");
+                if ((liveSyncState == LiveSyncState.OFF) || (liveSyncState == LiveSyncState.Paused)) {
+                    await FormIt.LumionLiveSync.Start();
                 } else {
                     await FormIt.LumionLiveSync.Pause();
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/play.png");
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_paused.png");
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0/images/stop.png");
-                    await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_disabled.png");
                 }
-                isStart = !isStart;
+                
+                LumionLiveSync.UpdateUI();
+            }
 
-            };
+            LumionLiveSync.Stop = async() => {
 
-            LumionLiveSync.Reset = async() => {
-                isStart = false;
-                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0/images/play.png");
-                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0/images/status_inactive.png");
-                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0/images/stop_disabled.png");
-                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_disabled.png");
-                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v22_0/images/settings_disabled.png");
-                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v22_0/images/export_disabled.png");
-            };
-
-            LumionLiveSync.End = async() => {
-                LumionLiveSync.Reset();
-                await FormIt.LumionLiveSync.End();
+                if (liveSyncState != LiveSyncState.OFF) {
+                    await FormIt.LumionLiveSync.Stop();
+                    LumionLiveSync.UpdateUI();
+                }
              };
 
-            LumionLiveSync.SyncLumionCameraOn = async() => {
-                if (isStart) {
-                    await FormIt.LumionLiveSync.SyncLumionCamera();
+            LumionLiveSync.Export = async() => {
+                if (liveSyncState == LiveSyncState.OFF) {
+                    await FormIt.LumionLiveSync.Export();
+                }
+            };             
 
-                    if (!isCameraOn) {
-                        await FormIt.LumionLiveSync.FollowLumionCamera(true);
-                        await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_stop.png");
-                    } else {
-                        await FormIt.LumionLiveSync.FollowLumionCamera(false);
-                        await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0/images/camera_start.png");
-                    }
-                    isCameraOn = !isCameraOn;
+            LumionLiveSync.ToggleFollowCamera = async() => {
+                if (liveSyncState == LiveSyncState.ON) {
+                    await FormIt.LumionLiveSync.ToggleFollowCamera();
+                    LumionLiveSync.UpdateUI();
                 }
             };
 
             LumionLiveSync.Settings = async() => {
-                if (isStart) {
-                    const dialogParams = {
-                        "PluginName": "Lumion Settings",
-                        "DialogBox": `${window.location.origin}/Lumion/v22_0/settings.html`,
-                        "DialogBoxWidth": 600,
-                        "DialogBoxHeight": 215,
-                        "DialogBoxType": "Modeless"
-                    };
-
-                    FormItInterface.CallMethod("FormIt.CreateDialogBox", JSON.stringify(dialogParams));
-
-                    const storageUpdatedHandler = () => {
-                        const hasProceededOnSettingsDialog = JSON.parse(localStorage.getItem('LumionSettings.hasProceededOnSettingsDialog'));
-
-                        if (hasProceededOnSettingsDialog) {
-                            removeEventListener('storage', storageUpdatedHandler, true);
-
-                            // Set the Camera option in FormIt
-                            const settings = JSON.parse(localStorage.getItem('LumionSettings'));
-                            const cameraSync = settings.cameraSync;
-                            //await not necessary here, yet.
-                            FormIt.LumionLiveSync.SetOptions(Boolean(cameraSync));
-                        }
-                    };
-
-                    localStorage.setItem('LumionSettings.hasProceededOnSettingsDialog', false);
-                    const storageEventListener = addEventListener('storage', storageUpdatedHandler, true);
+                if (liveSyncState == LiveSyncState.OFF) {
+                    await FormIt.LumionLiveSync.ShowSettings();
                 }
             };
 
             LumionLiveSync.Help = async() => {
-                const dialogParams = {
-                    "PluginName": "Lumion Help",
-                    "DialogBox": `${window.location.origin}/Lumion/v22_0/Help.html`,
-                    "DialogBoxWidth": 730,
-                    "DialogBoxHeight": 500,
-                    "DialogBoxType": "Modeless"
-                };
-
-                FormItInterface.CallMethod("FormIt.CreateDialogBox", JSON.stringify(dialogParams));
+                await FormIt.LumionLiveSync.ShowAbout();
             };
 
+            LumionLiveSync.NOOP = async() => {
+            }
 
-            LumionLiveSync.Export = async() => {
-                if (isStart) {
-                    await FormIt.Commands.DoCommand("File: Export Locally...");
-                }
-            };
-
-            LumionLiveSync.TODO = async() => {
-                //TODO needs implemented
-            };
-
-            LumionLiveSync.NOOP = () => {};
-            
-            // Call End on new model request.
-            FormItInterface.SubscribeMessage("FormIt.Message.kNewModelRequested", (msg) => {
-                LumionLiveSync.End();
+            // Subscribe to the LiveSyncUpdateUI message - for future use.
+            FormItInterface.SubscribeMessage("FormIt.Message.kLiveSyncUpdateUI", (msg) => {
+                LumionLiveSync.UpdateUI(status);
             });
 
-            // Check to see if Lumion is closing the document.
+            // Check if the plugin has changed its state - pooling approach.
             FormItInterface.SubscribeMessage("FormIt.Message.kTimerTicked", async (msg) => {
-                if (isStart)
-                {
-                    const isClosing = await FormIt.LumionLiveSync.isClosing();
-                    if (isClosing)
-                    {
-                        LumionLiveSync.End();
-                    }
-                }
+                LumionLiveSync.UpdateUI(status);
             });
 
         });
