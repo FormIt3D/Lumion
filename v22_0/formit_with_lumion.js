@@ -29,6 +29,16 @@ window.FormIt.LumionLiveSync.Export = function() {
     return callAsyncAPI(args);
 };
 
+window.FormIt.LumionLiveSync.ExportAs = function(fileName,bExportNodes, bOptimizeGeometries) {
+    args = {
+        TestAPI: "FormIt.LumionLiveSync.ExportAs",
+        FileName:fileName,
+        ExportNodes:bExportNodes,
+        OptimizeGeometries:bOptimizeGeometries
+    };
+    return callAsyncAPI(args);
+};
+
 window.FormIt.LumionLiveSync.ShowSettings = function() {
     args = {
         TestAPI: "FormIt.LumionLiveSync.ShowSettings"
@@ -58,10 +68,10 @@ window.FormIt.LumionLiveSync.FollowLumionCamera = function(bFollowLumionCamera) 
     return callAsyncAPI(args);
 };
 
-window.FormIt.LumionLiveSync.SetOptions = function(CameraSyncOnStart) {
+window.FormIt.LumionLiveSync.SetOptions = function(oPluginOptions) {
     args = {
         TestAPI: "FormIt.LumionLiveSync.SetOptions",
-        CameraSyncOnStart: CameraSyncOnStart
+        PluginOptions: oPluginOptions
     };
     return callAsyncAPI(args);
 };
