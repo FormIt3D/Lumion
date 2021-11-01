@@ -3,7 +3,7 @@ Lumion® LiveSync® for Autodesk® FormIt Pro®
 
 IMPORTANT: Do you need help? Please contact us via our support page: [https://support.lumion.com](https://support.lumion.com)
 
-![Main Preview](./preview.png)
+![Main Preview](preview.png)
 <br/>
 
 Lumion LiveSync creates a real-time connection between Lumion’s detail-rich, lifelike environments and the most popular 3D modeling and CAD programs. When you model in your CAD software, such as FormIt Pro, AutoCAD or Revit, Lumion immediately visualizes your design choices complete with lighting, atmosphere and other real-life conditions.
