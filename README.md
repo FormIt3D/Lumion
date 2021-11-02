@@ -1,7 +1,7 @@
 Lumion® LiveSync® for Autodesk® FormIt Pro®
 ========================
 
-IMPORTANT: Do you need help? Please contact us via our support page: [https://support.lumion.com](https://support.lumion.com)
+IMPORTANT: Do you need help? Please contact us via our support page: <a href="https://support.lumion.com" target="_blank">https://support.lumion.com</a>
 
 ![Main Preview](https://formit3d.github.io/Lumion/preview.png)
 <br/>
@@ -24,4 +24,4 @@ Lumion LiveSync for FormIt Pro includes:
 - Automatic model importing into Lumion (no need to separately import a model)
 - Collada _(*.dae)_ files exporter
 
-[Read more](https://lumion.com/formit-exporters.html)
+<a href="https://lumion.com/formit-exporters.html" target="_blank">Read more</a>
