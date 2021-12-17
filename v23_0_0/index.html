@@ -1,0 +1,135 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <script type="text/javascript" src="https://formit3d.github.io/FormItExamplePlugins/SharedPluginFiles/FormItInterface.js"></script>
+    <script type="text/javascript" src="https://formit3d.github.io/SharedPluginUtilities/FormIt_v22.js"></script>
+    <script src="formit_with_lumion.js"></script>
+
+    <script>
+        FormItInterface.Initialize(async() => {
+            
+            // LiveSync status 'enum'.
+            window.LiveSyncState = {
+                OFF       : 0,
+                ON        : 1,
+                Paused    : 2,
+                unknown   : Number.MAX_SAFE_INTEGER
+            };
+
+            window.LumionLiveSync = {};
+
+            //remember state;
+            let liveSyncState = LiveSyncState.unknown;
+            let isFollowCamera = false;
+
+            LumionLiveSync.UpdateUI = async() => {
+                const pluginState = await FormIt.LumionLiveSync.GetState();
+
+                if ((pluginState.liveSyncState != liveSyncState) || (pluginState.followCamera != isFollowCamera)) {
+                    liveSyncState  = pluginState.liveSyncState;
+                    isFollowCamera = pluginState.followCamera;
+                    
+                    switch(liveSyncState) {
+                        
+                        case(LiveSyncState.OFF):
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v23_0_0/images/play.png");
+                            await FormIt.PlugIn.SetToolbarToolTip("Lumion toolbar", "StartButton", "test1");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v23_0_0/images/stop_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v23_0_0/images/camera_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v23_0_0/images/status_inactive.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v23_0_0/images/settings.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v23_0_0/images/export.png");
+                        break;
+                        
+                        case(LiveSyncState.ON):
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v23_0_0/images/pause.png");
+                            await FormIt.PlugIn.SetToolbarToolTip("Lumion toolbar", "StartButton", "test2");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v23_0_0/images/stop.png");
+                            
+                            if (isFollowCamera) {
+                                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v23_0_0/images/camera_stop.png");
+                            } else {
+                                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v23_0_0/images/camera_start.png");
+                            }
+
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v23_0_0/images/status_active.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v23_0_0/images/settings_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v23_0_0/images/export_disabled.png");
+                        break;
+                        
+                        case(LiveSyncState.Paused):
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v23_0_0/images/play.png");
+                            await FormIt.PlugIn.SetToolbarToolTip("Lumion toolbar", "StartButton", "test3");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v23_0_0/images/stop.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v23_0_0/images/camera_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v23_0_0/images/status_paused.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v23_0_0/images/settings_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v23_0_0/images/export_disabled.png");
+                        break;
+                    }
+                }
+            }
+
+            LumionLiveSync.Start = async() => {
+
+                if ((liveSyncState == LiveSyncState.OFF) || (liveSyncState == LiveSyncState.Paused)) {
+                    await FormIt.LumionLiveSync.Start();
+                } else {
+                    await FormIt.LumionLiveSync.Pause();
+                }
+                
+                LumionLiveSync.UpdateUI();
+            }
+
+            LumionLiveSync.Stop = async() => {
+
+                if (liveSyncState != LiveSyncState.OFF) {
+                    await FormIt.LumionLiveSync.Stop();
+                    LumionLiveSync.UpdateUI();
+                }
+             };
+
+            LumionLiveSync.Export = async() => {
+                if (liveSyncState == LiveSyncState.OFF) {
+                    await FormIt.LumionLiveSync.Export();
+                }
+            };             
+
+            LumionLiveSync.ToggleFollowCamera = async() => {
+                if (liveSyncState == LiveSyncState.ON) {
+                    await FormIt.LumionLiveSync.ToggleFollowCamera();
+                    LumionLiveSync.UpdateUI();
+                }
+            };
+
+            LumionLiveSync.Settings = async() => {
+                if (liveSyncState == LiveSyncState.OFF) {
+                    await FormIt.LumionLiveSync.ShowSettings();
+                }
+            };
+
+            LumionLiveSync.Help = async() => {
+                await FormIt.LumionLiveSync.ShowAbout();
+            };
+
+            LumionLiveSync.NOOP = async() => {
+            }
+
+            // Subscribe to the LiveSyncUpdateUI message - for future use.
+            FormItInterface.SubscribeMessage("FormIt.Message.kLiveSyncUpdateUI", (msg) => {
+                LumionLiveSync.UpdateUI(status);
+            });
+
+            // Check if the plugin has changed its state - pooling approach.
+            FormItInterface.SubscribeMessage("FormIt.Message.kTimerTicked", async (msg) => {
+                LumionLiveSync.UpdateUI(status);
+            });
+
+        });
+    </script>
+</body>
+
+</html>
