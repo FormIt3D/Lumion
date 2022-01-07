@@ -2,8 +2,29 @@
     {
         "version":{
             "major":22,
-            "minor":0
+            "minor":0,
+            "revision":1,
+            "exactVersion":1
+        },
+        "path":"v22_0_1"
+    },
+    {
+        "version":{
+            "major":22,
+            "minor":0,
+            "revision":0,
+			"exactVersion":1
         },
         "path":"v22_0"
+    },
+    {
+        "version":{
+            "major":23,
+            "minor":0,
+			"revision":0,
+			"exactVersion":1
+        },
+        "path":"v23_0_0"
     }
+
 ]
