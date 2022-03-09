@@ -103,9 +103,9 @@ window.FormIt.PlugIn.SetIcon = function(URL, toolBarName, buttonName, buttonPath
     return callAsyncAPI(args);
 };
 
-window.FormIt.PlugIn.SetToolbarToolTip = function(toolBarName, buttonName, buttonToolTip) {
+window.FormIt.PlugIn.SetToolTip = function(toolBarName, buttonName, buttonToolTip) {
     args = {
-        TestAPI: "FormIt.PlugIn.SetToolbarToolTip",
+        TestAPI: "FormIt.PlugIn.SetToolTip",
         toolBarName: toolBarName,
         buttonName: buttonName,
         buttonToolTip: buttonToolTip
