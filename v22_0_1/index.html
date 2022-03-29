@@ -35,43 +35,43 @@
                     switch(liveSyncState) {
                         
                         case(LiveSyncState.OFF):
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "v22_0_1/images/play.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0_1/images/play.png");
                             await FormIt.PlugIn.SetToolTip("Lumion toolbar", "StartButton", "Turn on LiveSync");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "v22_0_1/images/stop_disabled.png");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "v22_0_1/images/camera_disabled.png");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "v22_0_1/images/status_inactive.png");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "v22_0_1/images/settings.png");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "v22_0_1/images/export.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0_1/images/stop_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0_1/images/camera_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0_1/images/status_inactive.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v22_0_1/images/settings.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v22_0_1/images/export.png");
                         break;
                         
                         case(LiveSyncState.ON):
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "v22_0_1/images/pause.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0_1/images/pause.png");
                             await FormIt.PlugIn.SetToolTip("Lumion toolbar", "StartButton", "Pause LiveSync");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "v22_0_1/images/stop.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0_1/images/stop.png");
 							await FormIt.PlugIn.SetToolTip("Lumion toolbar", "StopButton", "Stop LiveSync");
                             
                             if (isFollowCamera) {
-                                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "v22_0_1/images/camera_stop.png");
+                                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0_1/images/camera_stop.png");
 								await FormIt.PlugIn.SetToolTip("Lumion toolbar", "CameraButton", "Stop camera synchronization");
                             } else {
-                                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "v22_0_1/images/camera_start.png");
+                                await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0_1/images/camera_start.png");
 								await FormIt.PlugIn.SetToolTip("Lumion toolbar", "CameraButton", "Start camera synchronization");
                             }
 
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "v22_0_1/images/status_active.png");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "v22_0_1/images/settings_disabled.png");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "v22_0_1/images/export_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0_1/images/status_active.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v22_0_1/images/settings_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v22_0_1/images/export_disabled.png");
                         break;
                         
                         case(LiveSyncState.Paused):
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "v22_0_1/images/play.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StartButton", "Lumion/v22_0_1/images/play.png");
                             await FormIt.PlugIn.SetToolTip("Lumion toolbar", "StartButton", "Resume LiveSync");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "v22_0_1/images/stop.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StopButton", "Lumion/v22_0_1/images/stop.png");
 							await FormIt.PlugIn.SetToolTip("Lumion toolbar", "StopButton", "Stop LiveSync");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "v22_0_1/images/camera_disabled.png");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "v22_0_1/images/status_paused.png");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "v22_0_1/images/settings_disabled.png");
-                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "v22_0_1/images/export_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "CameraButton", "Lumion/v22_0_1/images/camera_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "StatusButton", "Lumion/v22_0_1/images/status_paused.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "SettingsButton", "Lumion/v22_0_1/images/settings_disabled.png");
+                            await FormIt.PlugIn.SetIcon(window.location.origin, "Lumion toolbar", "ExportButton", "Lumion/v22_0_1/images/export_disabled.png");
                         break;
                     }
                 }
