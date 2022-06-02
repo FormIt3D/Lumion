@@ -25,6 +25,16 @@
 			"exactVersion":1
         },
         "path":"v23_0_0"
+    },
+    {
+        "version":{
+            "major":23,
+            "minor":1,
+			"revision":0,
+			"exactVersion":1
+        },
+        "path":"v23_1_0"
     }
+
 
 ]
