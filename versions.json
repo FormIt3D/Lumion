@@ -34,8 +34,8 @@
 			"exactVersion":1
         },
         "path":"v23_1_0"
-    }
-	    {
+    },
+	{
         "version":{
             "major":24,
             "minor":0,
