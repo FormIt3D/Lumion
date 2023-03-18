@@ -1,0 +1,73 @@
+{
+    "PluginName": "Lumion LiveSync",
+    "PluginDescription": "Lumion® LiveSync® for Autodesk® FormIt Pro®",
+    "Platforms": ["Windows"],
+    "DLLs" : ["PLUGINLOCATION/LiveSyncForFormIt.dll"],
+    "PanelIcon": "PLUGINLOCATION/images/logo.png",
+    "Toolbar": {
+        "BackgroundHtml": "index.html",
+        "name": "Lumion toolbar",
+        "buttons": [{
+                "iconText": "LU",
+                "iconURL": "images/about.png",
+                "command": "LumionLiveSync.Help",
+                "useBackgroundContext": true,
+                "addSeparator": true,
+                "name": "AboutButton",
+                "ToolTip": "About Lumion® LiveSync® for Autodesk® FormIt Pro®"
+            },
+            {
+                "iconText": "ST",
+                "iconURL": "images/play.png",
+                "command": "LumionLiveSync.Start",
+                "useBackgroundContext": true,
+                "name": "StartButton",
+                "ToolTip": "Turn on LiveSync"
+            },
+            {
+                "iconText": "EN",
+                "iconURL": "images/stop_disabled.png",
+                "command": "LumionLiveSync.Stop",
+                "useBackgroundContext": true,
+                "addSeparator": true,
+                "name": "StopButton",
+                "ToolTip": "Stop LiveSync"
+            },
+            {
+                "iconText": "FC",
+                "iconURL": "images/camera_disabled.png",
+                "command": "LumionLiveSync.ToggleFollowCamera",
+                "useBackgroundContext": true,
+                "addSeparator": true,
+                "name": "CameraButton",
+                "ToolTip": "Stop camera synchronization"
+            },
+            {
+                "iconText": "ON",
+                "iconURL": "images/status_inactive.png",
+                "command": "LumionLiveSync.NOOP",
+                "useBackgroundContext": true,
+                "addSeparator": true,
+                "name": "StatusButton",
+                "ToolTip": "Lumion status"
+            },
+            {
+                "iconText": "SE",
+                "iconURL": "images/settings.png",
+                "command": "LumionLiveSync.Settings",
+                "useBackgroundContext": true,
+                "addSeparator": true,
+                "name": "SettingsButton",
+                "ToolTip": "LiveSync Settings"
+            },
+            {
+                "iconText": "EX",
+                "iconURL": "images/export.png",
+                "command": "LumionLiveSync.Export",
+                "useBackgroundContext": true,
+                "name": "ExportButton",
+                "ToolTip": "Save Collada File (Export)"
+            }
+        ]
+    }
+}
